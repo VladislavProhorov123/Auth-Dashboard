@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
+import hero from "../assets/hero.png";
 
 export default function Signup() {
   const [email, setEmail] = useState("");
@@ -28,42 +29,52 @@ export default function Signup() {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSignUp} className="max-w-md m-auto pt-24">
-        <h2 className="font-bold pb-2">Sign up Today!</h2>
-        <p>
-          Already have an account?{" "}
-          <Link className="text-blue-600 underline" to="/signin">
-            Sign in!
-          </Link>
-        </p>
+    <div
+      className="min-h-screen flex items-center justify-center bg-cover bg-bottom relative"
+      style={{ backgroundImage: `url('${hero}')` }}
+    >
 
-        <div className="flex flex-col gap-4 pt-4">
-          <input
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email"
-            type="email"
-            className="border p-2"
-          />
-          <input
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Password"
-            type="password"
-            className="border p-2"
-          />
-          <button
-            type="submit"
-            disabled={loading}
-            className="bg-blue-600 text-white p-2 rounded"
-          >
-            Sign Up
-          </button>
+        <div className="absolute inset-0 bg-black/20"></div>
 
-          {error && <p className="text-red-500">{error}</p>}
-        </div>
-      </form>
+      <div className="relative z-10 bg-white/80 backdrop-blur-md rounded-3xl shadow-lg w-full max-w-md p-8 sm:p-10">
+        <form onSubmit={handleSignUp} className="">
+          <h2 className="text-3xl font-bold text-gray-900 mb-2">
+            Sign up Today!
+          </h2>
+          <p className="text-gray-500 mb-6 text-sm">
+            Already have an account?{" "}
+            <Link className="text-blue-600 hover:underline" to="/signin">
+              Sign in!
+            </Link>
+          </p>
+
+          <div className="flex flex-col gap-4">
+            <input
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Email"
+              type="email"
+              className="border border-gray-300 rounded-xl p-3 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+            />
+            <input
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
+              type="password"
+              className="border border-gray-300 rounded-xl p-3 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+            />
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full bg-blue-600 text-white font-semibold p-3 rounded-xl hover:bg-blue-700 transition disabled:opacity-50 mt-4 cursor-pointer"
+            >
+              Sign Up
+            </button>
+
+            {error && <p className="text-red-500">{error}</p>}
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
