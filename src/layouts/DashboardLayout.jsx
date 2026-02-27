@@ -1,12 +1,13 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 import Header from '../components/Header'
+import Sidebar from '../components/Sidebar'
 
 export default function DashboardLayout() {
   return (
     <div className='h-screen flex bg-[rgb(var(--color-bg-main))]'>
       <aside className='w-64 bg-[rgb(var(--color-bg-card))] border-r border-[rgb(var(--color-border-muted))]'>
-        SIDEBAR
+        <Sidebar />
       </aside>
 
       <div className="flex-1 flex flex-col">

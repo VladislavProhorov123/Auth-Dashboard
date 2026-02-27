@@ -36,13 +36,14 @@ export default function Header() {
       <div className="text-gray-800 font-semibold text-lg">
         <p>Welcome, {session?.user?.email}!</p>
       </div>
+      
 
       <div className="flex items-center bg-gray-100 rounded-full w-1/3 max-w-md">
         <Search className="ml-3 text-gray-500" />
         <input
           type="text"
           placeholder="Search..."
-          className="bg-transparent outline-none w-full text-gray-700 placeholder-gray-400 py-2 px-4"
+          className="bg-transparent outline-none w-full text-gray-600 placeholder-gray-400 py-2 px-4"
         />
       </div>
 
@@ -51,7 +52,7 @@ export default function Header() {
           onClick={handleSignOut}
           className="flex items-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition cursor-pointer"
         >
-          <LogOut className="w-4 h-4 mr-2" />
+          <LogOut className="w-4 h-4 mr-2 " />
           Sign Out
         </button>
       </div>
