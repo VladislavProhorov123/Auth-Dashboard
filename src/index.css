@@ -38,3 +38,12 @@
   --color-btn-secondary-hover: 229 231 235;
   --color-btn-secondary-text: 17 24 39;
 }
+
+.recharts-surface {
+  outline: none !important;
+  user-select: none;
+  pointer-events: auto;
+}
+.recharts-surface:focus {
+  outline: none !important;
+}

@@ -6,6 +6,8 @@ import {
   Receipt,
   UserPlus,
 } from "lucide-react";
+import RevenueChart from "../../components/charts/RevenueChart";
+
 
 export default function Dashboard() {
   return (
@@ -48,14 +50,10 @@ export default function Dashboard() {
           />
         </div>
 
-        <div className="flex-1 ml-6 bg-[rgb(var(--color-bg-card))] rounded-lg shadow p-4">
-          <h2 className="text-lg font-semibold text-gray-800 mb-3">
-            Revenue Over Time
-          </h2>
-          <div className="w-full h-64 bg-gray-200 rounded-lg flex items-center justify-center">
-            <p className="text-gray-500">[Chart Placeholder]</p>
-          </div>
-        </div>
+    
+          
+          <RevenueChart />
+            
       </div>
     </div>
   );
