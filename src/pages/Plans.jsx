@@ -21,6 +21,30 @@ const plans = [
 
 export default function Plans() {
   const [billing, setBilling] = useState("monthly");
+  const [selectedPlan, setSelectedPlan] = useState(null);
+  const [isPaying, setIsPaying] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [progress, setProgress] = useState(0);
+
+  const handleFakePayment = (plan) => {
+    setSelectedPlan(plan);
+    setIsPaying(true);
+    setIsSuccess(false);
+    setProgress(0);
+
+    let value = 0;
+
+    const interval = setInterval(() => {
+      value += 2;
+      setProgress(value);
+
+      if (value >= 100) {
+        clearInterval(interval);
+        setIsPaying(false);
+        setIsSuccess(true);
+      }
+    }, 40);
+  };
 
   const getPrice = (monthlyPrice) => {
     if (billing === "monthly") return monthlyPrice;
@@ -74,30 +98,74 @@ export default function Plans() {
               </h2>
 
               <div className="flex items-end gap-1 mb-6">
-                <span className="text-4xl font-bold text-blue-600">${getPrice(plan.monthly)}</span>
+                <span className="text-4xl font-bold text-blue-600">
+                  ${getPrice(plan.monthly)}
+                </span>
 
-                <span className="text-gray-500">/{billing === "monthly" ? "mo" : "yr"}</span>
+                <span className="text-gray-500">
+                  /{billing === "monthly" ? "mo" : "yr"}
+                </span>
               </div>
 
               <ul className="flex flex-col gap-3 mb-6">
                 {plan.features.map((f) => (
                   <li key={f} className="flex items-center gap-2 text-gray-700">
-            <span className="flex items-center justify-center w-5 h-5 rounded-full bg-blue-100">
-              <Check size={14} className="text-blue-600" />
-            </span>
-            {f}
-          </li>
-
+                    <span className="flex items-center justify-center w-5 h-5 rounded-full bg-blue-100">
+                      <Check size={14} className="text-blue-600" />
+                    </span>
+                    {f}
+                  </li>
                 ))}
               </ul>
 
-              <button className="w-full py-3 rounded-2xl font-semibold bg-blue-600 text-white hover:bg-blue-700 active:scale-95 transition cursor-pointer">
+              <button
+                className="w-full py-3 rounded-2xl font-semibold bg-blue-600 text-white hover:bg-blue-700 active:scale-95 transition cursor-pointer"
+                onClick={() => handleFakePayment(plan)}
+              >
                 Choose plan
               </button>
             </div>
           ))}
         </div>
       </div>
+
+      {(isPaying || isSuccess) && (
+        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
+          <div className="bg-white rounded-2xl p-8 w-[320px] text-center">
+            {isPaying && (
+              <>
+                <div className="mb-4 text-blue-600 text-lg font-semibold">
+                  Processing payment
+                </div>
+
+                <div className="w-full h-2 bg-blue-100 rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-blue-600 transition-all duration-75 ease-linear"
+                    style={{ width: `${progress}%` }}
+                  />
+                </div>
+
+                <p className="mt-3 text-sm text-gray-500">{progress}%</p>
+              </>
+            )}
+
+            {isSuccess && (
+              <>
+                <h2 className="text-xl font-bold mb-2">Payment successful</h2>
+                <p className="text-gray-500 mb-6">
+                  You selected <b>{selectedPlan?.name}</b> plan
+                </p>
+                <button
+                  onClick={() => setIsSuccess(false)}
+                  className="w-full py-3 rounded-xl bg-blue-600 text-white font-semibold"
+                >
+                  Continue
+                </button>
+              </>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -12,7 +12,7 @@ import TransactionsPie from "../../components/charts/TransactionPie";
 export default function Dashboard() {
   return (
     <div className="">
-      <h1 className="text-2xl font-bold text-gray-800 mb-2">Dashboard</h1>
+      <h1 className="text-2xl font-bold text-gray-800 mb-4">Dashboard</h1>
 
       <div className="flex flex-col gap-6">
         <div className="flex">
