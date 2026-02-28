@@ -9,6 +9,7 @@ import Analytics from "../pages/Analytics";
 import Goals from "../pages/Goals";
 import Notifications from "../pages/Notifications";
 import Profile from "../pages/Profile";
+import Plans from "../pages/Plans";
 
 export default function DashboardLayout() {
   const [activeTab, setActiveTab] = useState("Dashboard");
@@ -21,6 +22,7 @@ export default function DashboardLayout() {
     Goals: <Goals />,
     Notifications: <Notifications />,
     Profile: <Profile />,
+    Plans: <Plans />
   };
 
   return (
