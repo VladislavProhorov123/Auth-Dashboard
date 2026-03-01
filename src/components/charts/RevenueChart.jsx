@@ -21,7 +21,7 @@ const data = [
 
 export default function RevenueChart() {
   return (
-    <div className="flex-1 ml-6 bg-white rounded-lg shadow p-4">
+    <div className="flex-1 bg-white rounded-lg shadow p-4">
       <h2 className="text-lg font-semibold text-gray-800 mb-6">
         Revenue Over Time
       </h2>

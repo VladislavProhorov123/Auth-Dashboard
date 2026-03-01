@@ -1,5 +1,6 @@
 import React from "react";
 import { useFinanceStore } from "../store/useFinanceStore";
+import AddTest from "./AddTest";
 
 export default function RecentTransactions() {
   const transactions = useFinanceStore((state) => state.transactions);
@@ -8,7 +9,9 @@ export default function RecentTransactions() {
     <div className="bg-white rounded-2xl overflow-hidden h-[380px] p-4 shadow flex flex-col">
       <h3 className="font-semibold text-lg mb-4">Recent transactions</h3>
 
-      <ul className="space-y-3 overflow-y-auto pr-2">
+      <AddTest />
+
+      <ul className="space-y-3 mt-4 overflow-y-auto pr-2">
         {transactions.map((tx) => (
           <li key={tx.id} className="flex justify-between items-center">
             <div className="">

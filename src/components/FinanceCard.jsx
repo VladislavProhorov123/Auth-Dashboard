@@ -10,7 +10,7 @@ export default function FinanceCard({
 }) {
   return (
     <div
-      className={`w-[188px] h-[184px] 
+      className={`w-full  h-[184px] 
         rounded-xl 
         shadow-md 
         p-4 
