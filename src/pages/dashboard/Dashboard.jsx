@@ -8,6 +8,8 @@ import {
 } from "lucide-react";
 import RevenueChart from "../../components/charts/RevenueChart";
 import RecentTransactions from "../../components/RecentTransactions";
+import ExpensesByCategory from "../../components/ExpensesByCategory";
+import AddTest from "../../components/AddTest";
 
 
 export default function Dashboard() {
@@ -56,6 +58,8 @@ export default function Dashboard() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <RecentTransactions />
+            <ExpensesByCategory />
+            <AddTest />
           </div>
       </div>
     </div>
