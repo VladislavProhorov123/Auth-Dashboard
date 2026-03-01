@@ -2,12 +2,13 @@ import React from "react";
 import FinanceCard from "../../components/FinanceCard";
 import {
   ChartCandlestickIcon,
-  Newspaper,
-  Receipt,
-  UserPlus,
+  HandCoins,
+  TrendingDown,
+  TrendingUp,
 } from "lucide-react";
 import RevenueChart from "../../components/charts/RevenueChart";
-import TransactionsPie from "../../components/charts/TransactionPie";
+import RecentTransactions from "../../components/RecentTransactions";
+
 
 export default function Dashboard() {
   return (
@@ -19,40 +20,43 @@ export default function Dashboard() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[28px]   bg-[rgb(var(--color-bg-card))] rounded-lg shadow p-4">
             <FinanceCard
               icon={<ChartCandlestickIcon className="text-white" />}
-              bgIcon="bg-red-500"
-              bgCard="bg-red-200"
-              title="Total Revenue"
+              bgIcon="bg-blue-500"
+              bgCard="bg-blue-100"
+              title="Total balance"
               subtitle="$45,231.89"
               info="+12.5% from last month"
             />
             <FinanceCard
-              icon={<Newspaper className="text-white" />}
+              icon={<TrendingUp className="text-white" />}
               bgIcon="bg-green-500"
               bgCard="bg-green-100"
-              title="Subscriptions"
-              subtitle="+2350"
+              title="Monthly income"
+              subtitle="+$2350"
               info="+8.2% from last month"
             />
             <FinanceCard
-              icon={<Receipt className="text-white" />}
-              bgIcon="bg-purple-500"
-              bgCard="bg-purple-100"
-              title="Sales"
-              subtitle="+12,234"
+              icon={<TrendingDown className="text-white" />}
+              bgIcon="bg-red-500"
+              bgCard="bg-red-100"
+              title="Monthly expenses"
+              subtitle="+$12,234"
               info="+5.4% from last month"
             />
             <FinanceCard
-              icon={<UserPlus className="text-white" />}
+              icon={<HandCoins className="text-white" />}
               bgIcon="bg-yellow-500"
               bgCard="bg-yellow-100"
-              title="New Customers"
-              subtitle="+1,234"
+              title="Savings"
+              subtitle="+$1,234"
               info="+12.5% from last month"
             />
           </div>
           <RevenueChart />
         </div>
-        <TransactionsPie />
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <RecentTransactions />
+          </div>
       </div>
     </div>
   );
