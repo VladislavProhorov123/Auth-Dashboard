@@ -1,3 +1,4 @@
+import confetti from "canvas-confetti";
 import { Check } from "lucide-react";
 import React, { useState } from "react";
 
@@ -50,6 +51,24 @@ export default function Plans() {
     if (billing === "monthly") return monthlyPrice;
     return Math.round(monthlyPrice * 12 * 0.8);
   };
+
+  const fireConfetti = () => {
+    confetti({
+      particleCount: 80,
+      spread: 60,
+      origin: { y: 0.7 },
+      colors: ["#0000FF"],
+    });
+
+    setTimeout(() => {
+      confetti({
+        particleCount: 50, 
+        spread: 100,
+        origin: { y: 0.5 },
+        colors: ["#0000FF"],
+      })
+    }, 150)
+  }
   return (
     <div className="">
       <div className="mb-4">
@@ -156,7 +175,10 @@ export default function Plans() {
                   You selected <b>{selectedPlan?.name}</b> plan
                 </p>
                 <button
-                  onClick={() => setIsSuccess(false)}
+                  onClick={() => {
+                    fireConfetti()
+                    setIsSuccess(false)
+                  }}
                   className="w-full py-3 rounded-xl bg-blue-600 text-white font-semibold"
                 >
                   Continue
