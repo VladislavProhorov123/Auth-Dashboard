@@ -15,42 +15,51 @@ import {
   UserPen,
   BadgeCheck,
 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export default function Sidebar({ activeTab, setActiveTab }) {
   const tabs = [
     {
-      name: "Dashboard",
+      key: "dashboard",
+      label: "sidebar.dashboard",
       icon: ChartPie,
     },
     {
-      name: "Income",
+      key: "income",
+      label: "sidebar.income",
       icon: TrendingUp,
     },
     {
-      name: "Expenses",
+      key: "expenses",
+      label: "sidebar.expenses",
       icon: TrendingDown,
     },
     {
-      name: "Analytics",
+      key: "analytics",
+      label: "sidebar.analytics",
       icon: ChartNoAxesColumn,
     },
     {
-      name: "Goals",
+      key: "goals",
+      label: "sidebar.goals",
       icon: BadgeCheck,
     },
     {
-      name: "Notifications",
+      key: "notifications",
+      label: "sidebar.notifications",
       icon: BellRing,
     },
     {
-      name: "Profile",
+      key: "profile",
+      label: "sidebar.profile",
       icon: UserPen,
     },
   ];
 
+  const { t } = useTranslation();
+
   return (
     <div className="flex h-screen bg-gray-100">
-      {/* Sidebar */}
       <div className="flex flex-col w-64 text-gray-800 p-4">
         <h2 className="text-2xl font-bold mb-6">FinanceTracker</h2>
 
@@ -60,20 +69,18 @@ export default function Sidebar({ activeTab, setActiveTab }) {
 
             return (
               <button
-                key={tab.name}
-                onClick={() => setActiveTab(tab.name)}
+                key={tab.key}
+                onClick={() => setActiveTab(tab.key)}
                 className={`text-left p-3 cursor-pointer rounded-xl flex items-center cursor-pointer
     transition-transform duration-150
     hover:scale-105
     active:scale-95
     will-change-transform ${
-                  activeTab === tab.name
-                    ? "bg-blue-700 text-white"
-                    : "hover:bg-blue-300"
-                }`}
+      activeTab === tab.key ? "bg-blue-700 text-white" : "hover:bg-blue-300"
+    }`}
               >
                 <Icon className="w-5 h-5 mr-2" />
-                <span>{tab.name}</span>
+                <span>{t(tab.label)}</span>
               </button>
             );
           })}
@@ -83,16 +90,19 @@ export default function Sidebar({ activeTab, setActiveTab }) {
           <div className="bg-[url('assets/bg.png')] w-full h-[210px] bg-no-repeat bg-center rounded-2xl p-4 flex flex-col items-center justify-center text-white">
             <h2 className="text-2xl font-bold mb-2">FinanceTracker</h2>
             <p className="text-center text-gray-200 text-sm mb-4">
-              Get access to all features on tetumbas
+              {t("sidebar.proCard.description")}
             </p>
-            <button onClick={() => setActiveTab('Plans')} className="bg-white text-purple-600 px-8 py-2 rounded-xl font-bold
+            <button
+              onClick={() => setActiveTab("plans")}
+              className="bg-white text-purple-600 px-8 py-2 rounded-xl font-bold
     cursor-pointer
     transition-transform duration-150
     hover:scale-105
     active:scale-95
     will-change-transform
-">
-              Get Pro
+"
+            >
+              {t("sidebar.getPro")}
             </button>
           </div>
         </div>

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useFinanceStore } from "../store/useFinanceStore";
+import { useTranslation } from "react-i18next";
 
 export default function TransactionModal({ onClose }) {
   const addTransaction = useFinanceStore((s) => s.addTransaction);
 
-  const [type, setType] = useState("expence");
+  const [type, setType] = useState("expense");
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState("");
   const [category, setCategory] = useState("");
@@ -22,23 +23,25 @@ export default function TransactionModal({ onClose }) {
 
     onClose();
   };
+
+  const { t } = useTranslation();
   return (
     <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
       <div className="bg-white rounded-2xl w-[420px] p-6">
-        <h2 className="text-xl font-bold mb-4">Add transaction</h2>
+        <h2 className="text-xl font-bold mb-4">{t("modal.addTransaction")}</h2>
 
         <div className="flex gap-2 mb-4">
           <button
             onClick={() => setType("income")}
             className={`flex-1 py-2 rounded-2xl font-semibold ${type === "income" ? "bg-green-600 text-white" : "bg-gray-100"}`}
           >
-            Income
+            {t("modal.income")}
           </button>
           <button
             onClick={() => setType("expense")}
             className={`flex-1 py-2 rounded-2xl font-semibold ${type === "expense" ? "bg-red-600 text-white" : "bg-gray-100"}`}
           >
-            Income
+            {t("modal.expense")}
           </button>
         </div>
 
@@ -46,7 +49,7 @@ export default function TransactionModal({ onClose }) {
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          placeholder="Title"
+          placeholder={t("modal.title")}
           className="w-full mb-3 px-3 py-2 border rounded-2xl"
         />
 
@@ -54,7 +57,7 @@ export default function TransactionModal({ onClose }) {
           type="number"
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
-          placeholder="Amount"
+          placeholder={t("modal.amount")}
           className="w-full mb-3 px-3 py-2 border rounded-2xl"
         />
 
@@ -63,25 +66,25 @@ export default function TransactionModal({ onClose }) {
           onChange={(e) => setCategory(e.target.value)}
           className="w-full mb-5 px-3 py-2 border rounded-xl"
         >
-          <option value="">Selected category</option>
-          <option value="Salary">Salary</option>
-          <option value="Food">Food</option>
-          <option value="Subscriptions">Subscriptions</option>
-          <option value="Transport">Transport</option>
-          <option value="Other">Other</option>
+          <option value="">{t("modal.selectCategory")}</option>
+          <option value="salary">{t("categories.salary")}</option>
+          <option value="food">{t("categories.food")}</option>
+          <option value="subscriptions">{t("categories.subscriptions")}</option>
+          <option value="transport">{t("categories.transport")}</option>
+          <option value="other">{t("categories.other")}</option>
         </select>
         <div className="flex gap-3">
           <button
             onClick={onClose}
             className="flex-1 py-2 rounded-xl bg-gray-100"
           >
-            Cancel
+            {t("modal.cancel")}
           </button>
           <button
             onClick={submit}
             className="flex-1 py-2 rounded-xl bg-blue-600 text-white font-semibold active:scale-95 transition"
           >
-            Add
+            {t("modal.add")}
           </button>
         </div>
       </div>

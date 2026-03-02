@@ -15,14 +15,14 @@ export default function DashboardLayout() {
   const [activeTab, setActiveTab] = useState("Dashboard");
 
   const tabComponents = {
-    Dashboard: <Dashboard />,
-    Income: <Income />,
-    Expenses: <Expenses />,
-    Analytics: <Analytics />,
-    Goals: <Goals />,
-    Notifications: <Notifications />,
-    Profile: <Profile />,
-    Plans: <Plans />
+    dashboard: <Dashboard />,
+    income: <Income />,
+    expenses: <Expenses />,
+    analytics: <Analytics />,
+    goals: <Goals />,
+    notifications: <Notifications />,
+    profile: <Profile />,
+    plans: <Plans />
   };
 
   return (

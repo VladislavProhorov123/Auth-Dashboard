@@ -1,10 +1,70 @@
 {
-  "dashboard": "Dashboard",
   "totalBalance": "Total balance",
   "monthlyIncome": "Monthly income",
   "monthlyExpenses": "Monthly expenses",
   "addTransaction": "Add transaction",
   "welcome": "Welcome",
   "search": "Search...",
-  "signOut": "Sign out"
+  "signOut": "Sign out",
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "income": "Income",
+    "expenses": "Expenses",
+    "analytics": "Analytics",
+    "goals": "Goals",
+    "notifications": "Notifications",
+    "profile": "Profile",
+    "getPro": "Get Pro",
+    "proCard": {
+      "description": "Get access to all features on Dashboard"
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard"
+  },
+  "cards": {
+    "totalBalance": "Total balance",
+    "monthlyIncome": "Monthly income",
+    "monthlyExpenses": "Monthly expenses",
+    "savings": "Savings",
+    "fromLastMonth": "+{{percent}}% from last month"
+  },
+  "chart": {
+    "revenueOverTime": "Revenue Over Time",
+    "income": "Income",
+    "expense": "Expense"
+  },
+  "months": {
+    "jan": "Jan",
+    "feb": "Feb",
+    "mar": "Mar",
+    "apr": "Apr",
+    "may": "May",
+    "jun": "Jun"
+  },
+  "charts": {
+    "expensesByCategory": "Expenses by category"
+  },
+  "categories": {
+    "food": "Food",
+    "rent": "Rent",
+    "transport": "Transport",
+    "salary": "Salary",
+    "other": "Other",
+    "subscriptions": "Subscriptions"
+  },
+  "modal": {
+    "addTransaction": "Add transaction",
+    "income": "Income",
+    "expense": "Expense",
+    "title": "Title",
+    "amount": "Amount",
+    "selectCategory": "Select category",
+    "cancel": "Cancel",
+    "add": "Add"
+  },
+  "recentTransactions": {
+    "title": "Recent transactions",
+    "addButton": "Add transaction"
+  }
 }

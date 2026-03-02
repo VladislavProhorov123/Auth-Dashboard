@@ -1,10 +1,70 @@
 {
-  "dashboard": "Панель керування",
   "totalBalance": "Загальний баланс",
   "monthlyIncome": "Місячний дохід",
   "monthlyExpenses": "Місячні витрати",
   "addTransaction": "Додати транзакцію",
   "welcome": "Ласкаво просимо",
   "search": "Пошук...",
-  "signOut": "Вийти"
+  "signOut": "Вийти",
+  "sidebar": {
+    "dashboard": "Панель",
+    "income": "Дохід",
+    "expenses": "Витрати",
+    "analytics": "Аналітика",
+    "goals": "Цілі",
+    "notifications": "Сповіщення",
+    "profile": "Профіль",
+    "getPro": "Отримати Pro",
+    "proCard": {
+      "description": "Отримайте доступ до всіх можливостей Dashboard"
+    }
+  },
+  "dashboard": {
+    "title": "Панель керування"
+  },
+  "cards": {
+    "totalBalance": "Загальний баланс",
+    "monthlyIncome": "Місячний дохід",
+    "monthlyExpenses": "Місячні витрати",
+    "savings": "Заощадження",
+    "fromLastMonth": "+{{percent}}% з минулого місяця"
+  },
+  "chart": {
+    "revenueOverTime": "Дохід з часом",
+    "income": "Дохід",
+    "expense": "Витрати"
+  },
+  "months": {
+    "jan": "Січ",
+    "feb": "Лют",
+    "mar": "Бер",
+    "apr": "Квіт",
+    "may": "Трав",
+    "jun": "Чер"
+  },
+  "charts": {
+    "expensesByCategory": "Витрати за категоріями"
+  },
+  "categories": {
+    "food": "Їжа",
+    "rent": "Оренда",
+    "transport": "Транспорт",
+    "salary": "Зарплата",
+    "other": "Інше",
+    "subscriptions": "Підписки"
+  },
+  "modal": {
+    "addTransaction": "Додати транзакцію",
+    "income": "Дохід",
+    "expense": "Витрата",
+    "title": "Назва",
+    "amount": "Сума",
+    "selectCategory": "Оберіть категорію",
+    "cancel": "Скасувати",
+    "add": "Додати"
+  },
+  "recentTransactions": {
+    "title": "Останні транзакції",
+    "addButton": "Додати транзакцію"
+  }
 }
