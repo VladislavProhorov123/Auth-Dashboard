@@ -12,7 +12,7 @@ import Profile from "../pages/Profile";
 import Plans from "../pages/Plans";
 
 export default function DashboardLayout() {
-  const [activeTab, setActiveTab] = useState("Dashboard");
+  const [activeTab, setActiveTab] = useState("dashboard");
 
   const tabComponents = {
     dashboard: <Dashboard />,

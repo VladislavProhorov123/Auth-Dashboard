@@ -66,5 +66,33 @@
   "recentTransactions": {
     "title": "Recent transactions",
     "addButton": "Add transaction"
+  },
+  "plans": {
+    "title": "Plan & Pricing",
+    "description": "Choose the plan that fits your needs. All plans include essential features to get you started, with options to scale as you grow. No hidden fees and the flexibility to change anytime.",
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "discount": "-20% off on annual payments",
+    "mo": "mo",
+    "yr": "yr",
+    "choosePlan": "Choose plan",
+    "processing": "Processing payment",
+    "success": "Payment successful",
+    "selectedPlan": "You selected",
+    "continue": "Continue",
+    "free": "Free",
+    "pro": "Pro",
+    "enterprise": "Enterprise",
+    "features": {
+      "basicanalytics": "Basic analytics",
+      "1chart": "1 chart",
+      "limiteddata": "Limited data",
+      "allanalytics": "All analytics",
+      "unlimitedcharts": "Unlimited charts",
+      "exportdata": "Export data",
+      "everything": "Everything",
+      "teamaccess": "Team access",
+      "prioritysupport": "Priority support"
+    }
   }
 }

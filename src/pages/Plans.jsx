@@ -1,6 +1,7 @@
 import confetti from "canvas-confetti";
 import { Check } from "lucide-react";
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const plans = [
   {
@@ -62,24 +63,23 @@ export default function Plans() {
 
     setTimeout(() => {
       confetti({
-        particleCount: 50, 
+        particleCount: 50,
         spread: 100,
         origin: { y: 0.5 },
         colors: ["#0000FF"],
-      })
-    }, 150)
-  }
+      });
+    }, 150);
+  };
+
+  const { t } = useTranslation();
+
   return (
     <div className="">
       <div className="mb-4">
         <h1 className="text-2xl font-bold text-gray-800 mb-2">
-          Plan & Pricing
+          {t("plans.title")}
         </h1>
-        <p className="max-w-[700px] text-gray-500">
-          Choose the plan that fits your needs. All plans include essential
-          features to get you started, with options to scale as you grow. No
-          hidden fees and the flexibility to change anytime.
-        </p>
+        <p className="max-w-[700px] text-gray-500">{t("plans.description")}</p>
       </div>
       <div className="flex flex-col items-center">
         <div className="flex flex-col items-center gap-2 mb-10">
@@ -91,7 +91,7 @@ export default function Plans() {
               onClick={() => setBilling("monthly")}
               className={`cursor-pointer relative z-10 px-6 py-2 rounded-2xl font-semibold transition-colors ${billing === "monthly" ? "text-white" : "text-blue-700"}`}
             >
-              Monthly
+              {t("plans.monthly")}
             </button>
 
             <button
@@ -100,20 +100,20 @@ export default function Plans() {
                 billing === "yearly" ? "text-white" : "text-blue-700"
               }`}
             >
-              Yearly
+              {t("plans.yearly")}
             </button>
           </div>
-          <p className="text-blue-700 text-sm">-20% off on annual payments</p>
+          <p className="text-blue-700 text-sm">{t("plans.discount")}</p>
         </div>
 
         <div className="flex gap-6">
           {plans.map((plan) => (
             <div
-              className="flex-1 bg-white rounded-2xl p-6 border border-blue-100 shadow-sm hover:shadow-md transition w-[200px]"
+              className="flex-1 bg-white rounded-2xl p-6 border border-blue-100 shadow-sm hover:shadow-md transition w-[260px]"
               key={plan.name}
             >
               <h2 className="text-xl font-bold text-gray-900 mb-2">
-                {plan.name}
+                {t(`plans.${plan.name.toLowerCase()}`)}
               </h2>
 
               <div className="flex items-end gap-1 mb-6">
@@ -122,7 +122,7 @@ export default function Plans() {
                 </span>
 
                 <span className="text-gray-500">
-                  /{billing === "monthly" ? "mo" : "yr"}
+                  /{billing === "monthly" ? t("plans.mo") : t("plans.yr")}
                 </span>
               </div>
 
@@ -132,7 +132,7 @@ export default function Plans() {
                     <span className="flex items-center justify-center w-5 h-5 rounded-full bg-blue-100">
                       <Check size={14} className="text-blue-600" />
                     </span>
-                    {f}
+                    {t(`plans.features.${f.replace(/\s+/g, "").toLowerCase()}`)}
                   </li>
                 ))}
               </ul>
@@ -141,7 +141,7 @@ export default function Plans() {
                 className="w-full py-3 rounded-2xl font-semibold bg-blue-600 text-white hover:bg-blue-700 active:scale-95 transition cursor-pointer"
                 onClick={() => handleFakePayment(plan)}
               >
-                Choose plan
+                {t("plans.choosePlan")}
               </button>
             </div>
           ))}
@@ -154,7 +154,7 @@ export default function Plans() {
             {isPaying && (
               <>
                 <div className="mb-4 text-blue-600 text-lg font-semibold">
-                  Processing payment
+                  {t("plans.processing")}
                 </div>
 
                 <div className="w-full h-2 bg-blue-100 rounded-full overflow-hidden">
@@ -170,18 +170,18 @@ export default function Plans() {
 
             {isSuccess && (
               <>
-                <h2 className="text-xl font-bold mb-2">Payment successful</h2>
+                <h2 className="text-xl font-bold mb-2">{t("plans.success")}</h2>
                 <p className="text-gray-500 mb-6">
-                  You selected <b>{selectedPlan?.name}</b> plan
+                  {t("plans.selectedPlan")} <b>{selectedPlan?.name}</b> plan
                 </p>
                 <button
                   onClick={() => {
-                    fireConfetti()
-                    setIsSuccess(false)
+                    fireConfetti();
+                    setIsSuccess(false);
                   }}
                   className="w-full py-3 rounded-xl bg-blue-600 text-white font-semibold"
                 >
-                  Continue
+                  {t("plans.continue")}
                 </button>
               </>
             )}
