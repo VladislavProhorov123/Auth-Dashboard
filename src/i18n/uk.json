@@ -3,5 +3,8 @@
   "totalBalance": "Загальний баланс",
   "monthlyIncome": "Місячний дохід",
   "monthlyExpenses": "Місячні витрати",
-  "addTransaction": "Додати транзакцію"
+  "addTransaction": "Додати транзакцію",
+  "welcome": "Ласкаво просимо",
+  "search": "Пошук...",
+  "signOut": "Вийти"
 }

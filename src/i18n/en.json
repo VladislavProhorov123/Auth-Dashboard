@@ -3,5 +3,8 @@
   "totalBalance": "Total balance",
   "monthlyIncome": "Monthly income",
   "monthlyExpenses": "Monthly expenses",
-  "addTransaction": "Add transaction"
+  "addTransaction": "Add transaction",
+  "welcome": "Welcome",
+  "search": "Search...",
+  "signOut": "Sign out"
 }
